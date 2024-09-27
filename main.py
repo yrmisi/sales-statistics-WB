@@ -5,6 +5,7 @@ from dotenv import load_dotenv, find_dotenv
 
 from custom_decorators import measure_time
 from indexes_start_and_end_period import get_indexes_period
+from loading_data_from_env import ReportsPathSetting
 from parsing_xlsx_file_with_sales_statistics import collect_sales_statistics
 from parser_of_paths_to_files_with_reports import paths_to_reports
 
@@ -17,13 +18,9 @@ def main() -> None:
     total_sum_sales = 0
     total_sum_sales_after_deduction = 0
     total_sum_payable = 0
-    if not find_dotenv():
-        exit("Переменное окружение не загружено, т.к. отсутствует файл .env")
-    else:
-        load_dotenv()
-    # url_file: str = os.getenv("URL_WEEKLY_REPORTS")
-    url_file: str = os.getenv("URL_DAILY_REPORTS")
-
+    reports = ReportsPathSetting()
+    # url_file = reports.path_file_weekly_reports
+    url_file = reports.path_file_daily_reports
     start_period: str | None = None
     end_period: str | None = None
     paths_to_files: List[str] = paths_to_reports(url_file)

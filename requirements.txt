@@ -10,4 +10,5 @@ platformdirs==4.2.2
 pillow==10.4.0
 pathlib==1.0.1
 python-dotenv==1.0.1
-
+pydantic-settings==2.5.2
+pydantic==2.9.2
