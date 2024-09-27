@@ -1,4 +1,7 @@
+import os
 from typing import List
+
+from dotenv import load_dotenv, find_dotenv
 
 from custom_decorators import measure_time
 from indexes_start_and_end_period import get_indexes_period
@@ -14,15 +17,19 @@ def main() -> None:
     total_sum_sales = 0
     total_sum_sales_after_deduction = 0
     total_sum_payable = 0
-    # url_file: str = "Еженедельные отчеты"
-    url_file: str = r"Ежедневные отчеты\Сентябрь 2024"
+    if not find_dotenv():
+        exit("Переменное окружение не загружено, т.к. отсутствует файл .env")
+    else:
+        load_dotenv()
+    # url_file: str = os.getenv("URL_WEEKLY_REPORTS")
+    url_file: str = os.getenv("URL_DAILY_REPORTS")
+
     start_period: str | None = None
     end_period: str | None = None
     paths_to_files: List[str] = paths_to_reports(url_file)
     start_idx, end_idx, start_period_str, end_period_str = get_indexes_period(
         paths_to_files, start_period, end_period
     )
-
     for f in paths_to_files[start_idx:end_idx]:
         (
             sale,
