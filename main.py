@@ -1,13 +1,10 @@
-import os
 from typing import List
-
-from dotenv import load_dotenv, find_dotenv
 
 from custom_decorators import measure_time
 from indexes_start_and_end_period import get_indexes_period
 from loading_data_from_env import ReportsPathSetting
-from parsing_xlsx_file_with_sales_statistics import collect_sales_statistics
 from parser_of_paths_to_files_with_reports import paths_to_reports
+from parsing_xlsx_file_with_sales_statistics import collect_sales_statistics
 
 
 @measure_time
