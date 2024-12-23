@@ -1,6 +1,4 @@
-from typing import Dict
-
-product_name_by_article: Dict[str, str] = {
+product_name_by_article: dict[str, str] = {
     "wb27uf1v6b": "A6S black",
     "wb5nqq9ztf": "A6S white",
     "wb4mcjfrjg": "A6S pink",
@@ -22,9 +20,15 @@ product_name_by_article: Dict[str, str] = {
     "wb4lh4beqv": "AirPro 6 black (TWS Headphone black-blue до 07.09.2024)",
     "wb6ifmnztg": "AirPro 6 white (Air Pro 4 white до 07.09.2024)",
     "wbg7xia64": "AirPro 6 pink",
+    "wb1xia1zds": "Rosa 3Х3 warm white",
+    "wbac71ujk": "Rosa 3Х3 cold white",
+    "wb2m6eu7s0": "Rosa 3Х2 cold white",
+    "wb7gh0wkwk": "JBL 230NC black",
+    "wb6du6j578": "JBL 230NC white",
+    "wb1c5c1k44": "JBL 230NC pink",
 }
 
-cost_of_goods_delivered: Dict[int, Dict[str, float]] = {
+cost_of_goods_delivered: dict[int, dict[str, float]] = {
     0: {
         "wb27uf1v6b": 166.52,  # A6S black
         "wb4mcjfrjg": 166.52,  # A6S pink
@@ -46,6 +50,15 @@ cost_of_goods_delivered: Dict[int, Dict[str, float]] = {
         "wb4lh4beqv": 237.13,  # TWS Headphone black-blue
         "wb70zl7dpf": 255.53,  # TWS black
         "wb69gyf00n": 173.76,  # Ultradent toothbrush white
+    },
+    16914033: {
+        "wb6fwhndfr": 511.07,  # ETC irrigator black
+        "wb5ivffpl3": 367.97,  # ETC irrigator
+        "wbyd4jcsn": 292.33,  # Sonic toothbrush pink
+        "wb69gyf00n": 173.76,  # Ultradent toothbrush white
+        "wb3zik9amv": 427.25,  # NANJIREN toothbrush black
+        "wb4w83htuf": 427.25,  # NANJIREN toothbrush white
+        "wb6ozz9653": 427.25,  # NANJIREN toothbrush pink
     },
     18529690: {
         "wb27uf1v6b": 194.54,  # A6S black
@@ -112,8 +125,50 @@ cost_of_goods_delivered: Dict[int, Dict[str, float]] = {
         "wbg7xia64": 172.83,  # AirPro 6 pink
     },
     23467614: {
-        "wb27uf1v6b": 152.79,  # A6S black
-        "wb4mcjfrjg": 152.79,  # A6S pink
-        "wb5nqq9ztf": 152.79,  # A6S white
+        "wb27uf1v6b": 152.79,  # A6S black поставка от 19.08.2024
+        "wb4mcjfrjg": 152.79,  # A6S pink поставка от 19.08.2024
+        "wb5nqq9ztf": 152.79,  # A6S white поставка от 19.08.2024
+    },
+    24057101: {
+        "wb27uf1v6b": 151.64,  # A6S black поставка от 10.09.2024
+        "wb4mcjfrjg": 151.64,  # A6S pink поставка от 10.09.2024
+        "wb5nqq9ztf": 151.64,  # A6S white поставка от 10.09.2024
+    },
+    24482917: {
+        "wb27uf1v6b": 151.43,  # A6S black поставка от 25.09.2024
+        "wb4mcjfrjg": 151.43,  # A6S pink поставка от 25.09.2024
+        "wb5nqq9ztf": 151.43,  # A6S white поставка от 25.09.2024
+        "wb65h367sc": 222.69,  # AirPods white поставка от 25.09.2024
+        "wbszmkxv0": 222.69,  # AirPods pink поставка от 25.09.2024
+        "wb17exbwx8": 222.69,  # AirPods black поставка от 25.09.2024
+        "wb1xia1zds": 221.14,  # Rosa 3Х3 warm white поставка от 18.09.2024
+        "wbac71ujk": 254.31,  # Rosa 3Х3 cold white поставка от 18.09.2024
+        "wb2m6eu7s0": 235.88,  # Rosa 3Х2 cold white  поставка от 18.09.2024
+    },
+    24952123: {
+        "wb7gh0wkwk": 718.71,  # JBL 230NC black поставка от 18.09.2024
+        "wb6du6j578": 718.71,  # JBL 230NC white поставка от 18.09.2024
+        "wb1c5c1k44": 718.71,  # JBL 230NC pink поставка от 18.09.2024
+        "wb27uf1v6b": 163.65,  # A6S black поставка от 15.10.2024
+        "wb4mcjfrjg": 163.65,  # A6S pink поставка от 15.10.2024
+        "wb5nqq9ztf": 163.65,  # A6S white поставка от 15.10.2024
+        "wb4lh4beqv": 162.69,  # AirPro 6 black поставка от 15.10.2024
+        "wb6ifmnztg": 162.69,  # AirPro 6 white поставка от 15.10.2024
+        "wbg7xia64": 162.69,  # AirPro 6 pink поставка от 15.10.2024
+    },
+    25129222: {
+        "wb4mcjfrjg": 163.65,  # A6S pink поставка от 15.10.2024
+    },
+    25322121: {
+        "wb27uf1v6b": 154.84,  # A6S black поставка от 11.11.2024
+        "wb4mcjfrjg": 154.84,  # A6S pink поставка от 11.11.2024
+        "wb5nqq9ztf": 154.84,  # A6S white поставка от 11.11.2024
+        "wb65h367sc": 233.15,  # AirPods white поставка от 11.11.2024
+        "wbszmkxv0": 233.15,  # AirPods pink поставка от 11.11.2024
+        "wb17exbwx8": 233.15,  # AirPods black поставка от 11.11.2024
+    },
+    25825944: {
+        "wb27uf1v6b": 158.88,  # A6S black поставка от 21.11.2024
+        "wb4mcjfrjg": 158.88,  # A6S pink поставка от 21.11.2024
     },
 }

@@ -1,6 +1,6 @@
 import mmap
 from pprint import pprint
-from typing import Tuple, Dict, Final, List
+from typing import Final
 
 from openpyxl import Workbook, load_workbook
 
@@ -10,11 +10,11 @@ from product_name import replacing_article_with_the_product_name
 from sales_and_incomes import calculate_sales_turnover_and_income
 
 
-def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
+def collect_sales_statistics(filename: str):
     wb: Workbook = load_workbook(filename, data_only=True)
     sheet = wb.active
 
-    numbers_columns: Dict[str, int] = get_number_column(sheet[1])
+    numbers_columns: dict[str, int] = get_number_column(sheet[1])
     max_row: Final[int] = sheet.max_row
     sale_str: str = "Продажа"
     return_str: str = "Возврат"
@@ -28,7 +28,7 @@ def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
     total_storage: float = 0
     total_compensation_upon_return: float = 0
     cost_of_paid_acceptance: float = 0
-    sales_statistics: Dict = {}
+    sales_statistics: dict = {}
 
     for row in range(2, max_row + 1):
         delivery_number: int = sheet.cell(
@@ -66,7 +66,7 @@ def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
                     {article: [price, price_after_deduction, logistics, quantity]},
                 )
             elif article not in sales_statistics[delivery_number]:
-                sales_statistics[delivery_number][article]: List[float | int] = [
+                sales_statistics[delivery_number][article]: list[float | int] = [
                     price,
                     price_after_deduction,
                     logistics,
@@ -84,7 +84,7 @@ def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
                 sum_quantity: int = (
                     sales_statistics[delivery_number][article][3] + quantity
                 )
-                sales_statistics[delivery_number][article]: List[float | int] = [
+                sales_statistics[delivery_number][article]: list[float | int] = [
                     round(sum_price, 2),
                     round(sum_price_after_deduction, 2),
                     round(sum_logistics, 2),
@@ -108,10 +108,10 @@ def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
         ).value
         cost_of_paid_acceptance += paid_acceptance
 
-    sales_statistics: Dict[int, Dict[str, List[float | int]]] = add_the_value_of_income(
+    sales_statistics: dict[int, dict[str, list[float | int]]] = add_the_value_of_income(
         sales_statistics
     )
-    sales_statistics: Dict[int, Dict[str, List[float | int]]] = (
+    sales_statistics: dict[int, dict[str, list[float | int]]] = (
         replacing_article_with_the_product_name(sales_statistics)
     )
     print(", ".join(filename.split("/")[5:]).replace(".xlsx", "").capitalize())
@@ -150,6 +150,7 @@ def collect_sales_statistics(filename: str) -> Tuple[float, ...]:
     )
     print(f"{sale_of_goods=}, {total_incomes=}, {total_cost_price=} \n")
     return (
+        sales_statistics,
         sale_of_goods,
         total_incomes,
         total_cost_price,

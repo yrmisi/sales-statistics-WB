@@ -1,6 +1,4 @@
-from typing import Dict, Tuple
-
-NAME_AND_NUMBER_OF_COLUMNS: Dict[str, int] = {
+NAME_AND_NUMBER_OF_COLUMNS: dict[str, int] = {
     "Номер поставки": 0,
     "Артикул поставщика": 0,
     "Обоснование для оплаты": 0,
@@ -14,7 +12,7 @@ NAME_AND_NUMBER_OF_COLUMNS: Dict[str, int] = {
 }
 
 
-def get_number_column(column_names: Tuple) -> Dict[str, int]:
+def get_number_column(column_names: tuple) -> dict[str, int]:
     """Функция 'get_number_column' получает на вход кортеж из названий столбцов таблицы и
     отправляет словарь 'NAME_AND_NUMBER_OF_COLUMNS' c указанием названием столбцов и их номерами
     """
